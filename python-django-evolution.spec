@@ -3,7 +3,7 @@
 
 Name:           python-django-evolution
 Version:        0.0
-Release:        1.svn%{alphatag}.%mkrel 2
+Release:        1.svn%{alphatag}.%mkrel 3
 Summary:        Schema evolution for Django
 
 Group:          Development/Python
