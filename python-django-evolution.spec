@@ -1,9 +1,11 @@
-%define alphatag r164
-%define realname django-evolution
+%define module	django-evolution
+%define name	python-%{module}
+%define version	0.6.5
+%define rel		r212
 
-Name:           python-django-evolution
-Version:        0.0
-Release:        1.svn%{alphatag}.%mkrel 3
+Name:           %{name}
+Version:        %{version}
+Release:        %mkrel 0.svn.%{rel}
 Summary:        Schema evolution for Django
 
 Group:          Development/Python
@@ -11,12 +13,12 @@ License:        BSD
 URL:            http://code.google.com/p/django-evolution/
 # svn export -%{alphatag} http://django-evolution.googlecode.com/svn/trunk/ django-evolution-%{alphatag}
 # tar zcf django-evolution-%{alphatag}.tar.gz django-evolution-%{alphatag}
-Source0:        %{realname}-%{alphatag}.tar.gz
+Source0:        %{module}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildArch:      noarch
 BuildRequires:  python-devel
-Requires:       python-django
+Requires:       python-django >= 1.1.1
 
 %description
 When you run ./manage.py syncdb, Django will look for any new models that
@@ -29,19 +31,19 @@ Django that allows you to track changes in your models over time, and to
 update the database to reflect those changes.
 
 %prep
-%setup -q -n %{realname}-%{alphatag}
+%setup -q -n %{module}-%{version}
 
 %build
+%__rm -rf tests
 %{__python} setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
+%__rm -rf %{buildroot}
+PYTHONDONTWRITEBYTECODE= %{__python} setup.py install --root=%{buildroot} --record=FILE_LIST
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+%__rm -rf %{buildroot}
 
-%files
+%files -f FILE_LIST
 %defattr(-,root,root,-)
-%doc AUTHORS LICENSE README docs/
-%{py_puresitedir}/*
+%doc AUTHORS LICENSE NEWS README docs/*
