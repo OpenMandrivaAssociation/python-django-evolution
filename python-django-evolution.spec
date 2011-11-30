@@ -17,7 +17,7 @@ Source0:        %{module}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildArch:      noarch
-BuildRequires:  python-devel
+BuildRequires:  python-devel, python-setuptools
 Requires:       python-django >= 1.1.1
 
 %description
