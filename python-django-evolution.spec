@@ -38,5 +38,5 @@ PYTHONDONTWRITEBYTECODE= %{__python} setup.py install --root=%{buildroot} --reco
 sed -i 's/.*egg-info$//' FILE_LIST
 
 %files -f FILE_LIST
-%doc AUTHORS LICENSE NEWS README docs/*
+%doc AUTHORS LICENSE README docs/*
 
