@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   django_evolution-0.6.9.tar.gz: ab43f425b001aadf2dbe9bd2b6efcd1cfec4b6a1
+sources:
+  django_evolution-0.7.3.tar.gz: 7db68585b47373c76c10df63079d101bfe8bd102

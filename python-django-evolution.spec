@@ -1,7 +1,7 @@
 %define module	django-evolution
 
 Name:           python-%{module}
-Version:        0.6.9
+Version:        0.7.3
 Release:        1
 Summary:        Schema evolution for Django
 
@@ -10,7 +10,7 @@ License:        BSD
 URL:            http://code.google.com/p/django-evolution/
 # svn export -%{alphatag} http://django-evolution.googlecode.com/svn/trunk/ django-evolution-%{alphatag}
 # tar zcf django-evolution-%{alphatag}.tar.gz django-evolution-%{alphatag}
-Source0:        http://pypi.python.org/packages/source/d/django_evolution/django_evolution-%{version}.tar.gz
+Source0:        http://downloads.reviewboard.org/releases/django-evolution/0.7/django_evolution-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python-devel, python-setuptools
@@ -30,13 +30,12 @@ update the database to reflect those changes.
 %setup -q -n django_evolution-%{version}
 
 %build
-%__rm -rf tests
-%{__python} setup.py build
+rm -rf tests
+python setup.py build
 
 %install
-PYTHONDONTWRITEBYTECODE= %{__python} setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= python setup.py install --root=%{buildroot} --record=FILE_LIST
 sed -i 's/.*egg-info$//' FILE_LIST
 
 %files -f FILE_LIST
 %doc AUTHORS LICENSE README docs/*
-
