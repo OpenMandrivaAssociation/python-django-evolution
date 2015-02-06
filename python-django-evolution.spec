@@ -2,7 +2,7 @@
 
 Name:           python-%{module}
 Version:        0.6.9
-Release:        1
+Release:        2
 Summary:        Schema evolution for Django
 
 Group:          Development/Python
