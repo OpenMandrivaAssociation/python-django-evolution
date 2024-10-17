@@ -7,7 +7,7 @@ Summary:        Schema evolution for Django
 
 Group:          Development/Python
 License:        BSD
-URL:            http://code.google.com/p/django-evolution/
+URL:            https://code.google.com/p/django-evolution/
 # svn export -%{alphatag} http://django-evolution.googlecode.com/svn/trunk/ django-evolution-%{alphatag}
 # tar zcf django-evolution-%{alphatag}.tar.gz django-evolution-%{alphatag}
 Source0:        http://pypi.python.org/packages/source/d/django_evolution/django_evolution-%{version}.tar.gz
